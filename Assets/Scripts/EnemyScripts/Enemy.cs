@@ -29,4 +29,14 @@ public class Enemy : MonoBehaviour
             currentHealth -= 10f;
         }
     }
+
+    public float getCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public void setCurrentHealth(float newHealth)
+    {
+        currentHealth = newHealth;
+    }
 }

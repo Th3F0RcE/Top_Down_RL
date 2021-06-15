@@ -6,4 +6,6 @@ using UnityEngine;
 public class Shotgun : Gun
 {
     public int numberOfBullets;
+    [Range(0, 90)]
+    public int spreadAngle;
 }

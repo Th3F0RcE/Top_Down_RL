@@ -11,6 +11,6 @@ public class Item : ScriptableObject
     [TextArea]
     public string flavorText;
     public Sprite sprite;
-    public float damage;
+    //public float damage;
     public bool pickupAllowed;
 }
