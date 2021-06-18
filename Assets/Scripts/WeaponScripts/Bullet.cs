@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public GameObject hitEffect;
     public float damage;
-
+    private string bulletTag = "PistolBullet";
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
         }
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(effect, 0.35f);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        ObjectPooler.Instance.returnObject(bulletTag, gameObject);
     }
 }

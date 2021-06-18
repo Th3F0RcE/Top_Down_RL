@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PistolHandler : WeaponHandler
 {
+    private string bulletTag = "PistolBullet";
+
     void Awake()
     {
         base.OnAwake();
@@ -31,12 +33,13 @@ public class PistolHandler : WeaponHandler
 
     protected override void Shoot()
     {
-        GameObject bulletInstance = Instantiate(bulletPrefab);
-        bulletInstance.transform.position = transform.position;
+        GameObject bulletInstance = ObjectPooler.Instance.SpawnFromPool(bulletTag, transform.position, Quaternion.AngleAxis(aimAngle - 90f, Vector3.forward));
+        Debug.Log(bulletInstance.transform.position.x);
+        //bulletInstance.transform.position = transform.position;
         Rigidbody2D bulletRb = bulletInstance.GetComponent<Rigidbody2D>();
         Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), GetComponentInParent<Collider2D>());
 
-        bulletInstance.transform.rotation = Quaternion.AngleAxis(aimAngle - 90f, Vector3.forward);
+        //bulletInstance.transform.rotation = Quaternion.AngleAxis(aimAngle - 90f, Vector3.forward);
         bulletRb.velocity = new Vector2(aimDirection.x, aimDirection.y) * gun.bulletSpeed;
 
         shoot = false;

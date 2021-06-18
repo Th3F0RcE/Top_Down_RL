@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShotgunHandler : WeaponHandler
 {
     private Shotgun shotgun;
+    private string bulletTag = "PistolBullet";
+
     void Awake()
     {
         base.OnAwake();
@@ -55,7 +57,8 @@ public class ShotgunHandler : WeaponHandler
                 rotation = transform.rotation.eulerAngles - new Vector3(0, 0, -shotgun.spreadAngle * i - 90f);
                 //bullets[i] = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(transform.rotation.eulerAngles - new Vector3(0, 0, -shotgun.spreadAngle * i - 90f)));
             }
-            bullets[i] = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(rotation));
+            bullets[i] = ObjectPooler.Instance.SpawnFromPool(bulletTag, transform.position, Quaternion.Euler(rotation));
+            //bullets[i] = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(rotation));
             Physics2D.IgnoreCollision(bullets[i].GetComponent<Collider2D>(), GetComponentInParent<Collider2D>());
             bullets[i].GetComponent<Rigidbody2D>().AddForce(-bullets[i].transform.up * shotgun.bulletSpeed, ForceMode2D.Impulse);
         }
