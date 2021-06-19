@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item Database", menuName = "Assets/Databases/Item Database")]
 public class ItemDB : ScriptableObject
 {
-    public List<GameObject> allItems;
+    public List<Item> allItems;
 }
