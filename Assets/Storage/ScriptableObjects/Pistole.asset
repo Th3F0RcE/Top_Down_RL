@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a9065d21693f3469a1e8ae4ea03476, type: 3}
-  m_Name: Gun2
+  m_Script: {fileID: 11500000, guid: 172e86ace6e7a5f4fb29852f98fad384, type: 3}
+  m_Name: Pistole
   m_EditorClassIdentifier: 
-  id: IT0002
-  name: Bessere Gun
-  description: Viel besser
-  flavorText: So gut
+  id: IT0004
+  name: Pistole
+  description: 'Pistole
+
+'
+  flavorText: Peng
   sprite: {fileID: 21300000, guid: 78650e0e74a17ff49a8a319c6a278a3f, type: 3}
-  damage: 30
   pickupAllowed: 0
-  bulletSpeed: 100
-  fireRate: 10
+  bulletSpeed: 40
+  fireRate: 5
   bulletPrefab: {fileID: 8903673664366611244, guid: e9400b3828b31b941a4d9fc74d3d8ff8, type: 3}
