@@ -52,12 +52,12 @@ public class ShotgunHandler : WeaponHandler
             }
             else if (i % 2 == 0 && i != 0)
             {
-                rotation = playerRotation - new Vector3(0, 0, shotgun.spreadAngle * (i - 1) - 90f);
+                rotation = playerRotation - new Vector3(0, 0, Random.Range(0f,shotgun.spreadAngle) * (i - 1) - 90f);
                 //bullets[i] = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(transform.rotation.eulerAngles - new Vector3(0, 0, shotgun.spreadAngle * (i-1) - 90f)));
             }
             else
             {
-                rotation = playerRotation - new Vector3(0, 0, -shotgun.spreadAngle * i - 90f);
+                rotation = playerRotation - new Vector3(0, 0, -Random.Range(0f, shotgun.spreadAngle) * i - 90f);
                 //bullets[i] = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(transform.rotation.eulerAngles - new Vector3(0, 0, -shotgun.spreadAngle * i - 90f)));
             }
 
