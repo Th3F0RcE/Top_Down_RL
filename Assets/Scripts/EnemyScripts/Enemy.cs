@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag.Equals("Projectile"))
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
             currentHealth -= 10f;
         }
     }
+    */
 
     public float getCurrentHealth()
     {

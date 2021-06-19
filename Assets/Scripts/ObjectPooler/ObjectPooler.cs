@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
+    //TODO: Aktive Elemente nicht aus der Queue rausnehmen lassen!!!!!!
+
     [System.Serializable]
     public class Pool
     {

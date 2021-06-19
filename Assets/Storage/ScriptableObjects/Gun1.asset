@@ -18,6 +18,6 @@ MonoBehaviour:
   flavorText: "Mehr Wumms f\xFCr die Wumme"
   sprite: {fileID: 21300000, guid: 78650e0e74a17ff49a8a319c6a278a3f, type: 3}
   pickupAllowed: 0
-  bulletSpeed: 100
+  bulletSpeed: 1
   fireRate: 10
   bulletPrefab: {fileID: 8903673664366611244, guid: e9400b3828b31b941a4d9fc74d3d8ff8, type: 3}

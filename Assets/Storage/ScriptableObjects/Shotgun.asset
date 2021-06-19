@@ -18,7 +18,7 @@ MonoBehaviour:
   flavorText: hhh
   sprite: {fileID: 21300000, guid: 78650e0e74a17ff49a8a319c6a278a3f, type: 3}
   pickupAllowed: 0
-  bulletSpeed: 50
+  bulletSpeed: 10
   fireRate: 1.5
   bulletPrefab: {fileID: 8903673664366611244, guid: e9400b3828b31b941a4d9fc74d3d8ff8, type: 3}
   numberOfBullets: 9

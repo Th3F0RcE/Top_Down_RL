@@ -42,7 +42,8 @@ public abstract class WeaponHandler : MonoBehaviour
         aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, aimAngle);
 
-        Debug.Log(aimAngle);
+        //Debug.Log(aimAngle);
+        
         if(aimAngle > 90 || aimAngle < -90)
         {
             gameObject.GetComponent<SpriteRenderer>().flipY = true;
@@ -51,6 +52,7 @@ public abstract class WeaponHandler : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipY = false;
         }
+        
         //Shooting-Input
         if (Input.GetMouseButtonDown(0) && gun.fireRate == 0)
         {
