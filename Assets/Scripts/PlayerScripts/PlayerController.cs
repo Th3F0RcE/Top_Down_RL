@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour
 
     private float nextFire;
 
+    public ItemDB allItems;
+    public PickupDB allPickupItems;
+
     public Gun gun;
 
     private void Awake()
     {
-
     }
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleAiming();
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            DropWeapon();
+        }
     }
 
     protected void HandleAiming()
@@ -55,14 +61,35 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.GetChild(0).GetChild(1).GetComponent<SpriteRenderer>().flipY = false;
         }
         //Shooting-Input
-        if (Input.GetMouseButtonDown(0) && gun.fireRate == 0)
+        if(gun != null)
         {
-            gun.Shoot();
+            if (Input.GetMouseButtonDown(0) && gun.fireRate == 0)
+            {
+                gun.Shoot();
+            }
+            if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
+            {
+                nextFire = Time.time + (1 / gun.fireRate);
+                gun.Shoot();
+            }
         }
-        if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
+    }
+
+    public void DropWeapon()
+    {
+        foreach(GameObject pickup in allPickupItems.allPickUpObjects)
         {
-            nextFire = Time.time + (1 / gun.fireRate);
-            gun.Shoot();
+            if(pickup.name == gun.name)
+            {
+                GameObject weaponInstance = Instantiate(pickup, transform.position, Quaternion.identity);
+                Physics2D.IgnoreCollision(weaponInstance.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
+                //weaponInstance.GetComponent<Rigidbody2D>().AddForce((aimDirection).normalized * 20.0f, ForceMode2D.Impulse);
+                weaponInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(aimDirection.x, aimDirection.y).normalized * 10f;
+                gun = null;
+                //weaponSprite = null;
+                GameObject.Find("Weapon").transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = null;
+                return;
+            }
         }
     }
 }
